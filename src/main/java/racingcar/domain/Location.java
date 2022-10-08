@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.Objects;
+
 public class Location {
     public static final int MAX_FORWARD_LIMIT = 9;
     public static final int MIN_FORWARD_LIMIT = 4;
@@ -7,7 +9,14 @@ public class Location {
     public static final int MIN_STOP_LIMIT = 0;
     public static final String ERROR_MSG_WRONG_NO = "[ERROR] 허용된 범위 밖의 값을 입력하였습니다. 0 ~ 9 의 값을 입력해주세요";
 
-    private int location = 0;
+    private int locationValue = 0;
+
+    public Location() {
+    }
+
+    public Location(int locationValue) {
+        this.locationValue = locationValue;
+    }
 
     public boolean isForward(int no) {
         validNo(no);
@@ -20,10 +29,19 @@ public class Location {
         }
     }
     public void forward() {
-        this.location++;
+        this.locationValue++;
     }
 
-    public int getLocation() {
-        return this.location;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Location location = (Location) o;
+        return this.locationValue == location.locationValue;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(locationValue);
     }
 }

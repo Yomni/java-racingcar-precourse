@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.Objects;
+
 public class RacingCar {
     private final RacingCarName racingCarName;
     private final Location location;
@@ -9,17 +11,30 @@ public class RacingCar {
         this.location = new Location();
     }
 
-    public void race(int no) {
-        if (location.isForward(no)) {
+    public void race(MoveNumber moveNumber) {
+        if (location.isForward(moveNumber.getMoveNumber())) {
             location.forward();
         }
     }
 
-    public int getLocation() {
-        return this.location.getLocation();
+    public Location getLocation() {
+        return this.location;
     }
 
-    public String getRacingCarName() {
-        return this.racingCarName.getRacingCarName();
+    public RacingCarName getRacingCarName() {
+        return this.racingCarName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RacingCar racingCar = (RacingCar) o;
+        return Objects.equals(racingCarName, racingCar.racingCarName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(racingCarName, location);
     }
 }

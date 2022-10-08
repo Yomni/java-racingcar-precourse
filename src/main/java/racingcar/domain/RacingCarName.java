@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import org.junit.platform.commons.util.StringUtils;
 
+import java.util.Objects;
+
 public class RacingCarName {
     public static final String ERROR_MSG_OVER_LENGTH_LIMIT = "[ERROR] 자동차 이름은 5자 이하입니다.";
     public static final String ERROR_MSG_BLANK_OR_NULL = "[ERROR] 자동차 이름이 공백입니다.";
@@ -20,7 +22,7 @@ public class RacingCarName {
     }
 
     private void validBlankOrNull(String racingCarName) {
-        if (StringUtils.isBlank(racingCarName) || racingCarName == null) {
+        if (racingCarName == null || StringUtils.isBlank(racingCarName)) {
             throw new IllegalArgumentException(ERROR_MSG_BLANK_OR_NULL);
         }
     }
@@ -31,7 +33,16 @@ public class RacingCarName {
         }
     }
 
-    public String getRacingCarName() {
-        return this.racingCarName;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof RacingCarName)) return false;
+        RacingCarName that = (RacingCarName) o;
+        return racingCarName.equals(that.racingCarName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(racingCarName);
     }
 }

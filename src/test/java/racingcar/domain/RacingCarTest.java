@@ -18,19 +18,19 @@ public class RacingCarTest {
     @Test
     @DisplayName("전진 테스트")
     void 전진() {
-        racingCar.race(4);
-        int location = racingCar.getLocation();
+        racingCar.race(new MoveNumberForTest(4));
+        Location location = racingCar.getLocation();
 
-        assertThat(location).isEqualTo(1);
+        assertThat(location.equals(new Location(1))).isTrue();
     }
 
     @Test
     @DisplayName("멈춤 테스트")
     void 멈춤() {
-        racingCar.race(0);
-        int location = racingCar.getLocation();
+        racingCar.race(new MoveNumberForTest(0));
+        Location location = racingCar.getLocation();
 
-        assertThat(location).isEqualTo(0);
+        assertThat(location.equals(new Location(0))).isTrue();
     }
 
     @Test
@@ -38,10 +38,10 @@ public class RacingCarTest {
     void 입력_예외() {
         RacingCar racingCar = new RacingCar("Yomni");
 
-        assertThatThrownBy(() -> racingCar.race(-1))
+        assertThatThrownBy(() -> racingCar.race(new MoveNumberForTest(-1)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(Location.ERROR_MSG_WRONG_NO);
-        assertThatThrownBy(() -> racingCar.race(10))
+        assertThatThrownBy(() -> racingCar.race(new MoveNumberForTest(10)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(Location.ERROR_MSG_WRONG_NO);
     }
@@ -49,9 +49,18 @@ public class RacingCarTest {
     @Test
     @DisplayName("자동차 이름 테스트")
     void 자동차이름() {
-        String racingCarName = racingCar.getRacingCarName();
+        RacingCarName racingCarName = racingCar.getRacingCarName();
 
-        assertThat("Tom").isEqualTo(racingCarName);
+        assertThat(racingCarName.equals(new RacingCarName("Tom"))).isTrue();
+        assertThat(racingCarName.equals(new RacingCarName("Yomni"))).isFalse();
+    }
+
+    @Test
+    @DisplayName("자동차 equal 테스트")
+    void 자동차_equal() {
+        RacingCar compareCar = new RacingCar("Tom");
+
+        assertThat(racingCar.equals(compareCar)).isTrue();
     }
 
     @Test
