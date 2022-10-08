@@ -11,7 +11,7 @@ public class RacingCarTest {
 
     @BeforeEach
     void setUp() {
-        racingCar = new RacingCar();
+        racingCar = new RacingCar("Tom");
     }
 
     @Test
@@ -30,5 +30,13 @@ public class RacingCarTest {
         int location = racingCar.getLocation();
 
         assertThat(location).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("자동차 이름 테스트")
+    void 자동차이름() {
+        String racingCarName = racingCar.getRacingCarName();
+
+        assertThat("Tom").isEqualTo(racingCarName);
     }
 }
