@@ -25,12 +25,32 @@ public class RacingCarTest {
     }
 
     @Test
+    @DisplayName("전진 2회 테스트")
+    void 전진2회() {
+        racingCar.race(new MoveNumberForTest(4));
+        racingCar.race(new MoveNumberForTest(4));
+        Location location = racingCar.getLocation();
+
+        assertThat(location.equals(new Location(2))).isTrue();
+    }
+
+    @Test
     @DisplayName("멈춤 테스트")
     void 멈춤() {
         racingCar.race(new MoveNumberForTest(0));
         Location location = racingCar.getLocation();
 
         assertThat(location.equals(new Location(0))).isTrue();
+    }
+
+    @Test
+    @DisplayName("멈춤 테스트")
+    void 전진1회멈춤() {
+        racingCar.race(new MoveNumberForTest(5));
+        racingCar.race(new MoveNumberForTest(0));
+        Location location = racingCar.getLocation();
+
+        assertThat(location.equals(new Location(1))).isTrue();
     }
 
     @Test
