@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class RacingCarName {
     public static final String ERROR_MSG_OVER_LENGTH_LIMIT = "[ERROR] 자동차 이름은 5자 이하입니다.";
-    public static final String ERROR_MSG_BLANK_OR_NULL = "[ERROR] 자동차 이름이 공백입니다.";
+    public static final String ERROR_MSG_BLANK_OR_NULL = "[ERROR] 자동차 이름이 공백일 수 없습니다.";
     public static final int MAX_LENGTH_LIMIT_OF_RACING_CAR_NAME = 5;
 
     private final String racingCarNameValue;
