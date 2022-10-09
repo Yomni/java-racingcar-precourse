@@ -22,7 +22,7 @@ public class RacingCarListTest {
         RacingCarList carList = new RacingCarList(newCars);
         Winners winners = carList.report();
 
-        String resultStr = winners.toString();
+        String resultStr = winners.getWinnersAsString();
         assertThat("pobi, honux").isEqualTo(resultStr);
     }
 }

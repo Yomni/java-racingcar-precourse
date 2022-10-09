@@ -23,7 +23,6 @@ public class RacingCar {
         );
     }
 
-
     public void race(MoveNumber moveNumber) {
         if (location.isMovable(moveNumber.getMoveNumber())) {
             location.move();
