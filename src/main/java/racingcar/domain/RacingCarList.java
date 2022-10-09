@@ -22,6 +22,16 @@ public class RacingCarList {
         return new Winners(winnerList);
     }
 
+    private Location findMaxLocation() {
+        Location maxLocation = new Location(Integer.MIN_VALUE);
+        for (RacingCar car : racingCarList) {
+            int carLocationValue = car.getLocation().getLocationValue();
+            int maxLocationValue = maxLocation.getLocationValue();
+            maxLocation = new Location(Math.max(carLocationValue, maxLocationValue));
+        }
+        return maxLocation;
+    }
+
     private List<RacingCarName> getWinnerList(Location maxLocation) {
         List<RacingCarName> winnerList = new ArrayList<>();
         for (RacingCar car : racingCarList) {
@@ -34,16 +44,6 @@ public class RacingCarList {
         if (car.getLocation().equals(maxLocation)) {
             winnerList.add(car.getRacingCarName());
         }
-    }
-
-    private Location findMaxLocation() {
-        Location maxLocation = new Location(Integer.MIN_VALUE);
-        for (RacingCar car : racingCarList) {
-            int carLocationValue = car.getLocation().getLocationValue();
-            int maxLocationValue = maxLocation.getLocationValue();
-            maxLocation = new Location(Math.max(carLocationValue, maxLocationValue));
-        }
-        return maxLocation;
     }
 
     public List<RacingCar> getRacingCarList() {

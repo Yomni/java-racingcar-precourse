@@ -29,14 +29,6 @@ public class RacingCar {
         }
     }
 
-    public Location getLocation() {
-        return this.location;
-    }
-
-    public RacingCarName getRacingCarName() {
-        return this.racingCarName;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -48,5 +40,13 @@ public class RacingCar {
     @Override
     public int hashCode() {
         return Objects.hash(racingCarName, location);
+    }
+
+    public Location getLocation() {
+        return this.location;
+    }
+
+    public RacingCarName getRacingCarName() {
+        return this.racingCarName;
     }
 }

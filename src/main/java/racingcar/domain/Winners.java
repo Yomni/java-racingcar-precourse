@@ -10,7 +10,8 @@ public class Winners {
         this.winnerList = winnerList;
     }
 
-    public String getWinnersAsString() {
+    @Override
+    public String toString() {
         List<String> winnerListAsString = new ArrayList<>();
         for (RacingCarName carName : winnerList) {
             winnerListAsString.add(carName.getRacingCarNameValue());
@@ -19,8 +20,7 @@ public class Winners {
         return String.join(", ", winnerListAsString.toArray(new String[0]));
     }
 
-    @Override
-    public String toString() {
+    public String getWinnersAsString() {
         List<String> winnerListAsString = new ArrayList<>();
         for (RacingCarName carName : winnerList) {
             winnerListAsString.add(carName.getRacingCarNameValue());

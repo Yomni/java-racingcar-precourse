@@ -12,12 +12,12 @@ public class MoveNumber {
         this(getMoveNumberRandomly());
     }
 
-    private MoveNumber(int moveNumber) {
-        this.moveNumber = moveNumber;
-    }
-
     private static int getMoveNumberRandomly() {
         return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
+    }
+
+    private MoveNumber(int moveNumber) {
+        this.moveNumber = moveNumber;
     }
 
     public int getMoveNumber() {

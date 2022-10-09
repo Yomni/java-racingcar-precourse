@@ -30,9 +30,9 @@ public class RacingCarNamesForm {
         return racingCarNameArr;
     }
 
-    private void validateNumberOfCarNames(String[] racingCarNameArr) {
-        if (racingCarNameArr.length < MIN_NUMBER_OF_CAR_NAMES) {
-            throw new IllegalStateException(ERROR_MSG_NUMBER_OF_NAMES);
+    private void validateBlankOrNull(String carName) {
+        if (StringUtils.isBlank(carName) || carName == null) {
+            throw new IllegalArgumentException(ERROR_MSG_BLANK_OR_NULL);
         }
     }
 
@@ -44,15 +44,15 @@ public class RacingCarNamesForm {
         }
     }
 
-    private void validateLength(String carName) {
-        if (carName.length() > MAX_LENGTH_LIMIT_OF_RACING_CAR_NAME) {
-            throw new IllegalArgumentException(ERROR_MSG_OVER_LENGTH_LIMIT);
+    private void validateNumberOfCarNames(String[] racingCarNameArr) {
+        if (racingCarNameArr.length < MIN_NUMBER_OF_CAR_NAMES) {
+            throw new IllegalStateException(ERROR_MSG_NUMBER_OF_NAMES);
         }
     }
 
-    private void validateBlankOrNull(String carName) {
-        if (StringUtils.isBlank(carName) || carName == null) {
-            throw new IllegalArgumentException(ERROR_MSG_BLANK_OR_NULL);
+    private void validateLength(String carName) {
+        if (carName.length() > MAX_LENGTH_LIMIT_OF_RACING_CAR_NAME) {
+            throw new IllegalArgumentException(ERROR_MSG_OVER_LENGTH_LIMIT);
         }
     }
 
