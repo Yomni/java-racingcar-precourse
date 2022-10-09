@@ -102,4 +102,16 @@ public class RacingCarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(RacingCarName.ERROR_MSG_BLANK_OR_NULL);
     }
+
+    class MoveNumberForTest extends MoveNumber {
+        private final int moveNumber;
+
+        public MoveNumberForTest(int moveNumber) {
+            this.moveNumber = moveNumber;
+        }
+
+        public int getMoveNumber() {
+            return this.moveNumber;
+        }
+    }
 }
