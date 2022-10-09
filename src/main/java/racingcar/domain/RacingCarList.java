@@ -3,15 +3,15 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RacingCars {
-    private final List<RacingCar> racingCars;
+public class RacingCarList {
+    private final List<RacingCar> racingCarList;
 
-    public RacingCars(List<RacingCar> newCars) {
-        this.racingCars = newCars;
+    public RacingCarList(List<RacingCar> racingCarList) {
+        this.racingCarList = racingCarList;
     }
 
     public void raceAll() {
-        for (RacingCar car : racingCars) {
+        for (RacingCar car : racingCarList) {
             car.race(new MoveNumber());
         }
     }
@@ -24,7 +24,7 @@ public class RacingCars {
 
     private List<RacingCarName> getWinnerList(Location maxLocation) {
         List<RacingCarName> winnerList = new ArrayList<>();
-        for (RacingCar car : racingCars) {
+        for (RacingCar car : racingCarList) {
             addWinnerList(maxLocation, winnerList, car);
         }
         return winnerList;
@@ -38,7 +38,7 @@ public class RacingCars {
 
     private Location findMaxLocation() {
         Location maxLocation = new Location(Integer.MIN_VALUE);
-        for (RacingCar car : racingCars) {
+        for (RacingCar car : racingCarList) {
             int carLocationValue = car.getLocation().getLocationValue();
             int maxLocationValue = maxLocation.getLocationValue();
             maxLocation = new Location(Math.max(carLocationValue, maxLocationValue));
@@ -46,9 +46,9 @@ public class RacingCars {
         return maxLocation;
     }
 
-    public List<RacingCar> getRacingCars() {
+    public List<RacingCar> getRacingCarList() {
         List<RacingCar> copyList = new ArrayList<>();
-        for (RacingCar car : racingCars) {
+        for (RacingCar car : racingCarList) {
             copyList.add(RacingCar.copy(car));
         }
         return copyList;
