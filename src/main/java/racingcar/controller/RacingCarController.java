@@ -12,7 +12,6 @@ import java.util.List;
 
 public class RacingCarController {
     private final RacingCarService racingCarService;
-
     private final RacingCarView racingCarView;
 
     public RacingCarController(RacingCarService racingCarService, RacingCarView racingCarView) {

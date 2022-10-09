@@ -9,7 +9,6 @@ import racingcar.view.ConsoleRacingCarView;
 import racingcar.view.RacingCarView;
 
 public class AppConfig {
-
     public RacingCarController racingCarController() {
         return new RacingCarController(racingCarService(), racingCarView());
     }

@@ -11,6 +11,7 @@ public class RacingCarNamesForm {
     public static final String ERROR_MSG_NUMBER_OF_NAMES = "[ERROR] 최소 2개 이상의 이름을 입력하세요.";
     public static final int MAX_LENGTH_LIMIT_OF_RACING_CAR_NAME = 5;
     public static final int MIN_NUMBER_OF_CAR_NAMES = 2;
+    
     private final String[] racingCarNames;
 
     public RacingCarNamesForm(String racingCarNames) {
