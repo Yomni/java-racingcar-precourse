@@ -12,7 +12,7 @@ public class RacingCarTest {
 
     @BeforeEach
     void setUp() {
-        racingCar = new RacingCar("Tom");
+        racingCar = new RacingCar(new RacingCarName("Tom"));
     }
 
     @Test
@@ -56,7 +56,7 @@ public class RacingCarTest {
     @Test
     @DisplayName("전진 값이 잘못 입력된 경우 테스트")
     void 입력_예외() {
-        RacingCar racingCar = new RacingCar("Yomni");
+        RacingCar racingCar = new RacingCar(new RacingCarName("Yomni"));
 
         assertThatThrownBy(() -> racingCar.race(new MoveNumberForTest(-1)))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -78,7 +78,7 @@ public class RacingCarTest {
     @Test
     @DisplayName("자동차 equal 테스트")
     void 자동차_equal() {
-        RacingCar compareCar = new RacingCar("Tom");
+        RacingCar compareCar = new RacingCar(new RacingCarName("Tom"));
 
         assertThat(racingCar.equals(compareCar)).isTrue();
     }
@@ -86,7 +86,7 @@ public class RacingCarTest {
     @Test
     @DisplayName("자동차 이름을 6자 테스트")
     void 자동차이름_길이_예외_테스트() {
-        assertThatThrownBy(() -> new RacingCar("stupid"))
+        assertThatThrownBy(() -> new RacingCar(new RacingCarName("stupid")))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(RacingCarName.ERROR_MSG_OVER_LENGTH_LIMIT);
     }
@@ -94,11 +94,11 @@ public class RacingCarTest {
     @Test
     @DisplayName("자동차이름 null 혹은 공백 예외 테스트")
     void 자동차이름_공백_예외_테스트() {
-        assertThatThrownBy(() -> new RacingCar(""))
+        assertThatThrownBy(() -> new RacingCar(new RacingCarName("")))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(RacingCarName.ERROR_MSG_BLANK_OR_NULL);
 
-        assertThatThrownBy(() -> new RacingCar(null))
+        assertThatThrownBy(() -> new RacingCar(new RacingCarName(null)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(RacingCarName.ERROR_MSG_BLANK_OR_NULL);
     }

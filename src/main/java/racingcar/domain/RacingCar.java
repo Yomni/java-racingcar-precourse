@@ -6,10 +6,23 @@ public class RacingCar {
     private final RacingCarName racingCarName;
     private final Location location;
 
-    public RacingCar(String racingCarName) {
-        this.racingCarName = new RacingCarName(racingCarName);
+    public RacingCar(RacingCarName racingCarName) {
+        this.racingCarName = racingCarName;
         this.location = new Location();
     }
+
+    public RacingCar(RacingCarName racingCarName, Location location) {
+        this.racingCarName = racingCarName;
+        this.location = location;
+    }
+
+    public static RacingCar copy(RacingCar origin) {
+        return new RacingCar(
+                new RacingCarName(origin.getRacingCarName().getRacingCarNameValue())
+                , new Location(origin.getLocation().getLocationValue())
+        );
+    }
+
 
     public void race(MoveNumber moveNumber) {
         if (location.isMovable(moveNumber.getMoveNumber())) {

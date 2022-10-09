@@ -28,6 +28,7 @@ public class Location {
             throw new IllegalArgumentException(ERROR_MSG_WRONG_NO);
         }
     }
+
     public void move() {
         this.locationValue++;
     }
@@ -43,5 +44,9 @@ public class Location {
     @Override
     public int hashCode() {
         return Objects.hash(locationValue);
+    }
+
+    public int getLocationValue() {
+        return locationValue;
     }
 }
