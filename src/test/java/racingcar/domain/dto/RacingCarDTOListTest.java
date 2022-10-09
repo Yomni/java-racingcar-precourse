@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RacingCarListDtoTest {
+public class RacingCarDTOListTest {
 
     @Test
     void Dto_List_출력_테스트() {
@@ -23,7 +23,7 @@ public class RacingCarListDtoTest {
         list.add(new RacingCarDTO(crong));
         list.add(new RacingCarDTO(honux));
 
-        RacingCarListDTO carListDTO = new RacingCarListDTO(list);
+        RacingCarDTOList carListDTO = new RacingCarDTOList(list);
         assertThat(carListDTO.toString()).isEqualTo("pobi : -----\n" +
                 "crong : ----\n" +
                 "honux : -----\n");

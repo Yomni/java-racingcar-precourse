@@ -2,10 +2,10 @@ package racingcar.domain.dto;
 
 import java.util.List;
 
-public class RacingCarListDTO {
+public class RacingCarDTOList {
     private final List<RacingCarDTO> carDtoList;
 
-    public RacingCarListDTO(List<RacingCarDTO> carDtoList) {
+    public RacingCarDTOList(List<RacingCarDTO> carDtoList) {
         this.carDtoList = carDtoList;
     }
 
