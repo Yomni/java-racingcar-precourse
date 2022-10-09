@@ -12,8 +12,8 @@ public class RacingCar {
     }
 
     public void race(MoveNumber moveNumber) {
-        if (location.isForward(moveNumber.getMoveNumber())) {
-            location.forward();
+        if (location.isMovable(moveNumber.getMoveNumber())) {
+            location.move();
         }
     }
 

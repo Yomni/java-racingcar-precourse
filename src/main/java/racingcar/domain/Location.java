@@ -18,7 +18,7 @@ public class Location {
         this.locationValue = locationValue;
     }
 
-    public boolean isForward(int no) {
+    public boolean isMovable(int no) {
         validNo(no);
         return no >= MIN_FORWARD_LIMIT && no <= MAX_FORWARD_LIMIT;
     }
@@ -28,7 +28,7 @@ public class Location {
             throw new IllegalArgumentException(ERROR_MSG_WRONG_NO);
         }
     }
-    public void forward() {
+    public void move() {
         this.locationValue++;
     }
 
