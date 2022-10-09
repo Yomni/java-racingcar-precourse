@@ -9,11 +9,11 @@ public class RacingCarName {
     public static final String ERROR_MSG_BLANK_OR_NULL = "[ERROR] 자동차 이름이 공백입니다.";
     public static final int MAX_LENGTH_LIMIT_OF_RACING_CAR_NAME = 5;
 
-    private final String racingCarName;
+    private final String racingCarNameValue;
 
     public RacingCarName(String racingCarName) {
         validName(racingCarName);
-        this.racingCarName = racingCarName;
+        this.racingCarNameValue = racingCarName;
     }
 
     private void validName(String racingCarName) {
@@ -38,11 +38,15 @@ public class RacingCarName {
         if (this == o) return true;
         if (!(o instanceof RacingCarName)) return false;
         RacingCarName that = (RacingCarName) o;
-        return racingCarName.equals(that.racingCarName);
+        return racingCarNameValue.equals(that.racingCarNameValue);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(racingCarName);
+        return Objects.hash(racingCarNameValue);
+    }
+
+    public String getRacingCarNameValue() {
+        return racingCarNameValue;
     }
 }
