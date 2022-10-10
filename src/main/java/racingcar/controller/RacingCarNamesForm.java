@@ -22,11 +22,20 @@ public class RacingCarNamesForm {
         validateBlankOrNull(racingCarNames);
         validateForm(racingCarNames);
 
-        String[] racingCarNameArr = racingCarNames.split(",");
+        String[] racingCarNameArr = splitAndTrim(racingCarNames);
+
         validateNumberOfCarNames(racingCarNameArr);
         for (String carName : racingCarNameArr) {
             validateLength(carName);
             validateBlankOrNull(carName);
+        }
+        return racingCarNameArr;
+    }
+
+    private static String[] splitAndTrim(String racingCarNames) {
+        String[] racingCarNameArr = racingCarNames.split(",");
+        for (int i = 0; i < racingCarNameArr.length; i++) {
+            racingCarNameArr[i] = racingCarNameArr[i].trim();
         }
         return racingCarNameArr;
     }
